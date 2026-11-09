@@ -7,7 +7,7 @@ import { projects } from "@/data/portfolio";
 export default function ProjectShowcase() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
-  const featuredProjects = projects.slice(0, 5);
+  const featuredProjects = projects.slice(0, 4);
   const activeProject =
     hoveredIndex !== null ? featuredProjects[hoveredIndex] : null;
 

@@ -27,7 +27,7 @@ const connections = [
 const navigation = [
   { label: "Intro", href: "#home", icon: "›" },
   { label: "About Me", href: "#about", icon: "▤" },
-  { label: "Projects", href: "#Project", icon: "⑂" },
+  { label: "Projects", href: "#work", icon: "⑂" },
   { label: "Skills", href: "#skills", icon: "♧" },
   { label: "Contact", href: "#contact", icon: "✉" },
 ];

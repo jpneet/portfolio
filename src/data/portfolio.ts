@@ -62,7 +62,7 @@ export const projects: Project[] = [
     id: 1,
     slug: "meet-ai",
     title: "Meet AI",
-    image: "/meetai.jpg",
+    image: "/meet ai.jpg",
     category: "AI / Full-Stack SaaS",
     year: "2026",
     description:
@@ -189,31 +189,31 @@ export const projects: Project[] = [
     github: "",
     featured: true,
   },
-  {
-    id: 5,
-    slug: "ai-voice-assistant",
-    title: "AI Voice Agent",
-    image: "/ai voice agent.jpg",
-    category: "Artificial Intelligence / Python",
-    year: "2026",
-    description:
-      "An AI-powered voice assistant designed to interact with users through voice-based commands and intelligent responses.",
-    technologies: [
-      "Python",
-      "Speech Recognition",
-      "pyttsx3",
-      "OpenAI API",
-    ],
-    features: [
-      "Voice command recognition",
-      "AI-powered conversational responses",
-      "Text-to-speech output",
-      "Natural language understanding",
-      "Task automation",
-    ],
-    github: "https://github.com/jpneet/AI-Voice-Assistant",
-    featured: false,
-  },
+  // {
+  //   id: 5,
+  //   slug: "ai-voice-assistant",
+  //   title: "AI Voice Agent",
+  //   image: "/ai voice agent.jpg",
+  //   category: "Artificial Intelligence / Python",
+  //   year: "2026",
+  //   description:
+  //     "An AI-powered voice assistant designed to interact with users through voice-based commands and intelligent responses.",
+  //   technologies: [
+  //     "Python",
+  //     "Speech Recognition",
+  //     "pyttsx3",
+  //     "OpenAI API",
+  //   ],
+  //   features: [
+  //     "Voice command recognition",
+  //     "AI-powered conversational responses",
+  //     "Text-to-speech output",
+  //     "Natural language understanding",
+  //     "Task automation",
+  //   ],
+  //   github: "https://github.com/jpneet/AI-Voice-Assistant",
+  //   featured: false,
+  // },
   // {
   //   id: 6,
   //   slug: "campus-placement",
@@ -348,7 +348,7 @@ export const responsibilities = [
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Projects", href: "#work" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
