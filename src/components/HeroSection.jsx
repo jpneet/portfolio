@@ -27,8 +27,8 @@ const connections = [
 const navigation = [
   { label: "Intro", href: "#home", icon: "›" },
   { label: "About Me", href: "#about", icon: "▤" },
-  { label: "Projects", href: "#work", icon: "⑂" },
-  { label: "Skills", href: "#speaking", icon: "♧" },
+  { label: "Projects", href: "#Project", icon: "⑂" },
+  { label: "Skills", href: "#skills", icon: "♧" },
   { label: "Contact", href: "#contact", icon: "✉" },
 ];
 
@@ -125,11 +125,11 @@ export default function HeroSection() {
           and make things a little better in the open.
         </p>
         <div className="hero-section__actions">
-          <a className="hero-section__button hero-section__button--primary" href="#work">
+          <a className="hero-section__button hero-section__button--primary" href="#Project">
             Explore my work <span aria-hidden="true">↗</span>
           </a>
           <a className="hero-section__button" href="#about">
-            Read the writing <span aria-hidden="true">↗</span>
+            About Me <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
@@ -145,7 +145,7 @@ export default function HeroSection() {
       </aside>
 
       <aside className="hero-section__interests" aria-label="Currently into">
-        <h2>CURRENTLY INTO</h2>
+        <h2>Contact</h2>
         <p>Distributed systems</p>
         <p>Go &amp; PostgreSQL</p>
         <p>Good documentation</p>

@@ -1,45 +1,43 @@
-
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @import "tailwindcss";
 @source "../..";
 
 /* =========================================
-   GLOBAL THEME - MIDNIGHT NAVY & MINT
-   Original Color Palette Preserved
+   GLOBAL THEME
+   MIDNIGHT NAVY & MINT
 ========================================= */
 
 @theme {
-  /* Background Colors */
   --color-bg: #10121F;
+  --color-bg-base: #10121F;
+  --color-bg-surface: #151824;
   --color-bg-elevated: #151824;
   --color-bg-card: #1B1E2B;
 
-  /* Text Colors */
   --color-text-primary: #F3F0EB;
   --color-text-secondary: #A5A8B5;
   --color-text-muted: #73798A;
 
-  /* Accent Colors */
   --color-accent: #50D6A5;
   --color-accent-dim: #3BAE89;
 
-  /* Border Colors */
   --color-border: #292D3A;
   --color-border-light: #373C4B;
 
-  /* Font Families */
-  --font-heading: "Inter";
-  --font-body: "Inter", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --font-heading: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", Georgia, serif;
+  --font-body: "Satoshi", sans-serif;
+  --font-serif: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", Georgia, serif;
 }
 
 /* =========================================
-   ROOT DESIGN SYSTEM
+   ROOT VARIABLES
 ========================================= */
 
 :root {
+  color-scheme: dark;
+
   --bg: #10121F;
   --bg-surface: #151824;
   --bg-card: #1B1E2B;
@@ -53,9 +51,9 @@
   --border: #292D3A;
   --border-hover: #373C4B;
 
-  --font-display: "Clash Display", sans-serif;
+  --font-display: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", Georgia, serif;
   --font-body: "Satoshi", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --font-serif: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", Georgia, serif;
 
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -69,8 +67,6 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -80,17 +76,31 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--border-hover) var(--bg);
   background: var(--bg);
+  overflow-x: clip;
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+
   font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+
   background: var(--bg);
   color: var(--text);
+
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 a {
@@ -103,10 +113,6 @@ a:hover {
   color: var(--accent);
 }
 
-ul {
-  list-style: none;
-}
-
 img,
 video {
   max-width: 100%;
@@ -117,7 +123,6 @@ video {
 button {
   cursor: pointer;
   border: none;
-  background: none;
   font: inherit;
 }
 
@@ -146,7 +151,7 @@ select {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-dim);
+  background: var(--accent-2);
 }
 
 /* =========================================
@@ -170,11 +175,12 @@ h5,
 h6 {
   font-family: var(--font-display);
   color: var(--text);
+  margin-top: 0;
 }
 
 p {
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .font-heading {
@@ -193,7 +199,7 @@ p {
 
 .display-xl {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 11rem);
+  font-size: clamp(3rem, 7vw, 8rem);
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.04em;
@@ -203,7 +209,7 @@ p {
 
 .display-lg {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-size: clamp(2.2rem, 5vw, 5rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -213,7 +219,7 @@ p {
 
 .display-md {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 5rem);
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -223,7 +229,7 @@ p {
 
 .heading-lg {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -233,7 +239,7 @@ p {
 
 .heading-md {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -243,9 +249,9 @@ p {
 
 .label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -254,8 +260,8 @@ p {
 
 .body-lg {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
   color: var(--text-muted);
 }
 
@@ -263,32 +269,36 @@ p {
 
 .body-md {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.55;
   color: var(--text-muted);
 }
 
-/* Existing Typography Utilities */
+/* Hero */
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 12vw, 14rem);
+  font-size: clamp(3.5rem, 9vw, 10rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
   font-weight: 700;
 }
 
+/* Section Title */
+
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
   font-weight: 600;
 }
 
+/* Editorial */
+
 .editorial-large {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(1.3rem, 2.5vw, 2.5rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -319,7 +329,7 @@ p {
 }
 
 /* =========================================
-   GRAIN TEXTURE OVERLAY
+   GRAIN TEXTURE
 ========================================= */
 
 body::before {
@@ -346,7 +356,7 @@ body::before {
   background: linear-gradient(
     135deg,
     var(--accent) 0%,
-    var(--accent-dim) 100%
+    var(--accent-2) 100%
   );
 
   -webkit-background-clip: text;
@@ -371,7 +381,7 @@ body::before {
 }
 
 /* =========================================
-   MAGNETIC BUTTON
+   BUTTONS
 ========================================= */
 
 .btn-magnetic,
@@ -404,7 +414,7 @@ body::before {
   background: linear-gradient(
     135deg,
     var(--accent),
-    var(--accent-dim)
+    var(--accent-2)
   );
 
   color: var(--bg);
@@ -435,8 +445,6 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* Legacy Magnetic Button Effect */
-
 .magnetic-btn::after {
   content: "";
   position: absolute;
@@ -445,7 +453,6 @@ body::before {
   background: var(--accent);
 
   transform: translateY(100%);
-
   transition: transform 0.4s var(--ease-expo);
 
   z-index: 0;
@@ -678,7 +685,7 @@ body::before {
 }
 
 /* =========================================
-   SKILL TAG
+   SKILL TAGS
 ========================================= */
 
 .skill-tag {
@@ -702,7 +709,7 @@ body::before {
 }
 
 .text-huge {
-  font-size: clamp(6rem, 15vw, 12rem);
+  font-size: clamp(5rem, 11vw, 9rem);
   line-height: 1;
 }
 
@@ -713,7 +720,7 @@ body::before {
 
   background: linear-gradient(
     135deg,
-    var(--accent-dim) 0%,
+    var(--accent-2) 0%,
     var(--accent) 100%
   );
 
@@ -887,7 +894,66 @@ html.loading {
 }
 
 /* =========================================
-   REDUCED MOTION
+   MOBILE SPACING OPTIMIZATION
+   Desktop remains unchanged
+========================================= */
+
+@media (max-width: 767px) {
+  .section-pad {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .spacing-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0.65rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 380px) {
+  .container {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .section-pad {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .spacing-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY: REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {

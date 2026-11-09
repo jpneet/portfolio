@@ -62,11 +62,11 @@ export default function Contact() {
             custom={1}
             className="mb-9 max-w-xl font-heading text-5xl font-normal leading-[1.08] tracking-tight text-text-primary sm:text-6xl lg:text-[clamp(3.5rem,5vw,5rem)]"
           >
-            Have a room
+            Looking For a
             <br />
-            full of curious
+            Software
             <br />
-            developers<span className="text-accent">?</span>
+            developer<span className="text-accent">?</span>
           </motion.h2>
 
           {/* Description */}
@@ -77,9 +77,10 @@ export default function Contact() {
             custom={2}
             className="mb-10 max-w-md text-sm leading-[2] text-text-secondary md:text-[15px]"
           >
-            I'm open to conference talks, developer meetups, and hands-on
-            workshops. Tell me a little about your event and the people
-            you're bringing together.
+           I'm a full-stack engineer passionate about building impactful
+          software. I am open to new full-time positions, contracting
+          opportunities, and challenging projects. Tell me a little about
+          your needs and the technology stack you're using.
           </motion.p>
 
           {/* Availability Indicator */}
@@ -96,7 +97,7 @@ export default function Contact() {
             </span>
 
             <span className="font-heading text-xs tracking-wide text-text-secondary">
-              Open to speaking enquiries
+              Open to Software Engineering Role
             </span>
           </motion.div>
         </div>
@@ -159,39 +160,20 @@ export default function Contact() {
 
             </div>
 
-            {/* Event / Organization */}
-            <div>
-              <label
-                htmlFor="organization"
-                className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
-              >
-                Event or organization
-              </label>
-
-              <input
-                id="organization"
-                name="organization"
-                type="text"
-                placeholder="Conference, meetup, or team"
-                required
-                className="h-[54px] w-full rounded-[4px] border border-border bg-surface/40 px-4 font-heading text-xs text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
-              />
-            </div>
-
             {/* Message */}
             <div>
               <label
                 htmlFor="message"
                 className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
               >
-                A little about your event
+                A little about your role/project
               </label>
 
               <textarea
                 id="message"
                 name="message"
                 rows={6}
-                placeholder="The audience, topics, format, and dates you have in mind..."
+                placeholder="The role description, technology stack, and goals you have in mind ..."
                 required
                 className="min-h-[170px] w-full resize-y rounded-[4px] border border-border bg-surface/40 px-4 py-4 font-heading text-xs leading-relaxed text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
               />

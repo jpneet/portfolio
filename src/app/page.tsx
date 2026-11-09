@@ -4,11 +4,9 @@ import { Suspense, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
 import About from "@/components/About";
-import SpeakerHost from "@/components/SpeakerHost";
 import ProjectShowcase from "@/components/ProjectShowcase";
-import Skills from "@/components/Skills";
+import SkillsGallery from "@/components/Skills";
 import Education from "@/components/Education";
-import Achievements from "@/components/Achievements";
 import Certifications from "@/components/Certifications";
 import Responsibilities from "@/components/Responsibilities";
 import Contact from "@/components/Contact";
@@ -32,13 +30,11 @@ export default function Home() {
       <main >
         <HeroSection />
         <About />
-        {/* <SpeakerHost /> */}
         <ProjectShowcase />
-        {/* <Skills />
+        <SkillsGallery />
         <Education />
-        <Achievements />
         <Certifications />
-        <Responsibilities /> */}
+        <Responsibilities />
         <Contact />
       </main>
 
