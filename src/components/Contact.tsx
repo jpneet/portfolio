@@ -27,6 +27,7 @@ export default function Contact() {
 
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
@@ -52,20 +53,21 @@ export default function Contact() {
       );
 
       if (response.ok) {
-        setStatus(
-          "Message sent successfully! I'll get back to you soon."
-        );
         form.reset();
+        setIsSent(true);
       } else {
         setStatus("Something went wrong. Please try again.");
       }
     } catch {
-      setStatus(
-        "Unable to send your message. Please try again."
-      );
+      setStatus("Unable to send your message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const resetForm = () => {
+    setIsSent(false);
+    setStatus("");
   };
 
   return (
@@ -74,7 +76,6 @@ export default function Contact() {
       ref={sectionRef}
       className="relative isolate z-0 mx-auto max-w-[1440px] px-6 py-28 md:px-12 lg:px-20 lg:py-36"
     >
-      {/* Background Grid: stays behind content */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -92,8 +93,6 @@ export default function Contact() {
 
         {/* LEFT COLUMN */}
         <div className="relative z-0 lg:col-span-6">
-
-          {/* Section Label */}
           <motion.p
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -104,7 +103,6 @@ export default function Contact() {
             LET'S START A CONVERSATION
           </motion.p>
 
-          {/* Headline */}
           <motion.h2
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -119,7 +117,6 @@ export default function Contact() {
             developer<span className="text-accent">?</span>
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -133,7 +130,6 @@ export default function Contact() {
             your needs and the technology stack you're using.
           </motion.p>
 
-          {/* Availability Indicator */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -152,7 +148,7 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN: CONTACT FORM */}
+        {/* RIGHT COLUMN */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -163,109 +159,152 @@ export default function Contact() {
           }}
           className="relative z-0 lg:col-span-6"
         >
-          <form
-            onSubmit={handleSubmit}
-            className="relative z-0 space-y-7"
-          >
-
-            {/* Name and Email */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
-                >
-                  Your name
-                </label>
-
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Alex Morgan"
-                  required
-                  className="h-[54px] w-full rounded-[4px] border border-border bg-surface/40 px-4 font-heading text-xs text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
-                >
-                  Email address
-                </label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="you@company.com"
-                  required
-                  className="h-[54px] w-full rounded-[4px] border border-border bg-surface/40 px-4 font-heading text-xs text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
-                />
-              </div>
-
-            </div>
-
-            {/* Message */}
-            <div>
-              <label
-                htmlFor="message"
-                className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
-              >
-                A little about your role/project
-              </label>
-
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                placeholder="The role description, technology stack, and goals you have in mind ..."
-                required
-                className="min-h-[170px] w-full resize-y rounded-[4px] border border-border bg-surface/40 px-4 py-4 font-heading text-xs leading-relaxed text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
-              />
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="group inline-flex h-[58px] min-w-[164px] items-center justify-center gap-5 rounded-[4px] bg-accent px-7 font-heading text-sm font-semibold text-[#101510] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(55,220,157,0.2)] disabled:cursor-not-allowed disabled:opacity-60"
+          {isSent ? (
+            /* SUCCESS MESSAGE */
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              role="status"
+              aria-live="polite"
+              className="flex min-h-[430px] flex-col items-center justify-center rounded-[4px] border border-accent/20 bg-surface/40 px-8 py-12 text-center"
             >
-              {isSubmitting ? "Sending..." : "Let's talk"}
+              {/* Success Icon */}
+              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-accent"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </div>
 
-              {!isSubmitting && (
-                <span className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <p className="mb-4 font-heading text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
+                MESSAGE DELIVERED
+              </p>
+
+              <h3 className="mb-5 font-heading text-3xl font-medium text-text-primary">
+                Message Sent Successfully!
+              </h3>
+
+              <p className="mb-9 max-w-sm text-sm leading-[1.9] text-text-secondary">
+                Thank you for reaching out. Your message has been received.
+                I'll review your inquiry and get back to you as soon as possible.
+              </p>
+
+              <button
+                type="button"
+                onClick={resetForm}
+                className="group inline-flex h-[54px] items-center justify-center gap-4 rounded-[4px] bg-accent px-7 font-heading text-sm font-semibold text-[#101510] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(55,220,157,0.2)]"
+              >
+                Send Another Message
+                <span className="text-lg transition-transform group-hover:translate-x-1">
                   ↗
                 </span>
-              )}
-            </button>
+              </button>
+            </motion.div>
+          ) : (
+            /* CONTACT FORM */
+            <form
+              onSubmit={handleSubmit}
+              className="relative z-0 space-y-7"
+            >
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
+                  >
+                    Your name
+                  </label>
 
-            {/* Submission Status */}
-            {status && (
-              <p
-                role="status"
-                aria-live="polite"
-                className={`pt-2 text-xs ${
-                  status.startsWith("Message sent")
-                    ? "text-accent"
-                    : "text-red-400"
-                }`}
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Alex Morgan"
+                    required
+                    disabled={isSubmitting}
+                    className="h-[54px] w-full rounded-[4px] border border-border bg-surface/40 px-4 font-heading text-xs text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
+                  >
+                    Email address
+                  </label>
+
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@company.com"
+                    required
+                    disabled={isSubmitting}
+                    className="h-[54px] w-full rounded-[4px] border border-border bg-surface/40 px-4 font-heading text-xs text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="mb-3 block font-heading text-xs font-semibold tracking-wide text-text-secondary"
+                >
+                  A little about your role/project
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  placeholder="The role description, technology stack, and goals you have in mind ..."
+                  required
+                  disabled={isSubmitting}
+                  className="min-h-[170px] w-full resize-y rounded-[4px] border border-border bg-surface/40 px-4 py-4 font-heading text-xs leading-relaxed text-text-primary outline-none transition-all placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent/30"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group inline-flex h-[58px] min-w-[164px] items-center justify-center gap-5 rounded-[4px] bg-accent px-7 font-heading text-sm font-semibold text-[#101510] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(55,220,157,0.2)] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {status}
+                {isSubmitting ? "Sending..." : "Let's talk"}
+
+                {!isSubmitting && (
+                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
+                )}
+              </button>
+
+              {/* ERROR MESSAGE */}
+              {status && (
+                <p
+                  role="alert"
+                  className="pt-2 text-xs text-red-400"
+                >
+                  {status}
+                </p>
+              )}
+
+              <p className="pt-1 text-[11px] leading-relaxed text-text-muted">
+                Your details are kept private and used only to respond to this inquiry.
               </p>
-            )}
-
-            {/* Privacy Note */}
-            <p className="pt-1 text-[11px] leading-relaxed text-text-muted">
-              Your details are kept private and used only to respond to this inquiry.
-            </p>
-
-          </form>
+            </form>
+          )}
         </motion.div>
-
       </div>
 
       {/* Bottom Border */}
@@ -275,7 +314,6 @@ export default function Contact() {
         transition={{ duration: 1, delay: 0.5 }}
         className="mt-28 h-px w-full origin-left bg-white/[0.12]"
       />
-
     </section>
   );
 }
