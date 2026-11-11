@@ -8,7 +8,7 @@ export default function Footer() {
           DESIGNED &amp; DEVELOPED BY JAPNEET SINGH®
         </span>
         <span className="text-text-muted">
-          &copy; 2026 ALL RIGHTS RESERVED.
+          VENI VIDI VICI
         </span>
       </div>
     </footer>
