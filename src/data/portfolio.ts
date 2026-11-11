@@ -15,12 +15,14 @@ export const personalInfo = {
   phone: "+91 77175 33168",
   email: "japneetsingh1708@gmail.com",
   github: "https://github.com/jpneet",
-  linkedin: "https://linkedin.com/in/japneetsingh",
+  linkedin: "https://linkedin.com/in/jpneet",
+  whatsapp:"https://wa.me/7717533168",
   resumePath: "/resume.pdf",
   socialLinks: {
     github: "https://github.com/jpneet",
-    linkedin: "https://linkedin.com/in/japneetsingh",
+    linkedin: "https://linkedin.com/in/jpneet",
     email: "japneetsingh1708@gmail.com",
+    whatsapp:"https://wa.me/9651126727"
   },
 };
 
@@ -34,13 +36,6 @@ export const aboutContent = {
   ],
 };
 
-export const speakerContent = {
-  headline:
-    "More than building products. I enjoy being part of the conversation.",
-  description:
-    "Technology is not just about writing code. Communication, sharing ideas, and connecting with people are equally important parts of growth.",
-  caption: "Speaker / Host",
-};
 
 export interface Project {
   id: number;
@@ -266,20 +261,89 @@ export const projects: Project[] = [
   // },
 ];
 
-export const skills = {
-  "Programming Languages": ["C++", "Python", "JavaScript", "SQL"],
-  Frontend: ["React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
-  Backend: ["Node.js", "Express.js", "REST APIs"],
-  Databases: ["PostgreSQL", "Prisma", "Drizzle ORM"],
-  "Developer Tools": ["Git", "GitHub", "Vercel"],
-  "Core Computer Science": [
-    "Data Structures & Algorithms",
-    "Object-Oriented Programming",
-    "DBMS",
-    "Operating Systems",
-    "Computer Networks",
-  ],
-};
+export const skills = [
+  {
+    id: 1,
+    number: "01",
+    title: "Programming",
+    subtitle: "Languages & Fundamentals",
+    description:
+      "The languages I use to solve problems and build software.",
+    skills: ["C++", "Python", "JavaScript", "SQL"],
+  },
+  {
+    id: 2,
+    number: "02",
+    title: "Frontend",
+    subtitle: "Interfaces & Experiences",
+    description:
+      "Building modern, responsive and interactive digital experiences.",
+    skills: [
+      "React.js",
+      "Next.js",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    id: 3,
+    number: "03",
+    title: "Backend",
+    subtitle: "Logic & Architecture",
+    description:
+      "Developing scalable server-side applications and APIs.",
+    skills: ["Node.js", "Express.js", "REST APIs"],
+  },
+  {
+    id: 4,
+    number: "04",
+    title: "Databases",
+    subtitle: "Data & Management",
+    description:
+      "Structuring, managing and querying application data.",
+    skills: ["PostgreSQL", "Prisma", "Drizzle ORM"],
+  },
+  {
+    id: 5,
+    number: "05",
+    title: "Machine Learning",
+    subtitle: "Intelligence & Models",
+    description:
+      "Exploring machine learning concepts, data processing and predictive models.",
+    skills: [
+      "NumPy",
+      "Pandas",
+      "Scikit-learn",
+      "Regression",
+      "Classification",
+      "Decision Trees",
+      "Random Forest",
+      "SVM",
+      "KNN",
+      "PCA",
+      "Feature Engineering",
+      "Supervised Learning",
+      "Unsupervised Learning",
+    ],
+  },
+  {
+    id: 6,
+    number: "06",
+    title: "Tools & Technologies",
+    subtitle: "Development & Workflow",
+    description:
+      "Tools and platforms used to develop, manage and deploy applications.",
+    skills: [
+      "Git",
+      "GitHub",
+      "Postman",
+      "Docker",
+      "Vercel",
+      "Cloudinary",
+    ],
+  },
+];
 
 export const education = [
   {
@@ -346,9 +410,9 @@ export const responsibilities = [
 ];
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
+  { label: "Intro", href: "#home",},
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#work" },
+  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];

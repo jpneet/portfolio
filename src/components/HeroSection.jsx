@@ -1,6 +1,7 @@
 import "./HeroSection.css";
 import Image from "next/image";
 import { personalInfo } from "@/data/portfolio";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const nodes = [
   [112, 204], [158, 136], [205, 255], [238, 187], [280, 106], [302, 307],
@@ -27,7 +28,7 @@ const connections = [
 const navigation = [
   { label: "Intro", href: "#home", icon: "›" },
   { label: "About Me", href: "#about", icon: "▤" },
-  { label: "Projects", href: "#work", icon: "⑂" },
+  { label: "Projects", href: "#projects", icon: "⑂" },
   { label: "Skills", href: "#skills", icon: "♧" },
   { label: "Contact", href: "#contact", icon: "✉" },
 ];
@@ -94,7 +95,21 @@ export default function HeroSection() {
         <span aria-hidden="true" />
         BUILDING IN THE OPEN
       </p>
-      <p className="hero-section__focus">BACKEND / SYSTEMS / COMMUNITY</p>
+      <div className="hero-section__top-right">
+        <p className="hero-section__focus">
+          BACKEND / SYSTEMS / COMMUNITY
+        </p>
+
+        <a
+          href="/resume.pdf"
+          download="Japneet_Singh_Resume.pdf"
+          className="hero-section__resume"
+        >
+          <span>↓</span>
+          DOWNLOAD RESUME
+        </a>
+      </div>
+
 
       <nav className="hero-section__nav" aria-label="Main navigation">
         {navigation.map((item, index) => (
@@ -125,7 +140,7 @@ export default function HeroSection() {
           and make things a little better in the open.
         </p>
         <div className="hero-section__actions">
-          <a className="hero-section__button hero-section__button--primary" href="#Project">
+          <a className="hero-section__button hero-section__button--primary" href="#projects">
             Explore my work <span aria-hidden="true">↗</span>
           </a>
           <a className="hero-section__button" href="#about">
@@ -134,21 +149,53 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <aside className="hero-section__connect" aria-label="Connect">
-        <h2>CONNECT</h2>
-        <a href={personalInfo.socialLinks.github} target="_blank" rel="noopener noreferrer">
-          GitHub <span aria-hidden="true">↗</span>
-        </a>
-        <a href={`mailto:${personalInfo.socialLinks.email}`}>
-          Let&apos;s talk <span aria-hidden="true">↗</span>
-        </a>
-      </aside>
+      <aside className="hero-section__interests" aria-label="Contact information">
+        <h1>GET IN TOUCH</h1>
 
-      <aside className="hero-section__interests" aria-label="Currently into">
-        <h2>Contact</h2>
-        <p>Distributed systems</p>
-        <p>Go &amp; PostgreSQL</p>
-        <p>Good documentation</p>
+          <a
+            href="https://mail.google.com/mail/?view=cm&to=japneetsingh1708@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Gmail ↗
+          </a>
+
+        <a href="tel:+917717533168">
+          +91 77175 33168
+        </a>
+
+        <p>
+          NEW DELHI, INDIA
+        </p>
+
+        <div className="hero-section__socials">
+          <a
+            href={personalInfo.socialLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </a>
+
+          <a
+            href={personalInfo.socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+
+          <a
+            href={personalInfo.socialLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp />
+          </a>
+        </div>
       </aside>
 
       <div className="hero-section__bottom">

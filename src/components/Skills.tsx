@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef, useState, useLayoutEffect } from "react";
@@ -7,81 +8,7 @@ import {
   useTransform,
 } from "framer-motion";
 
-const skillStacks = [
-  {
-    id: 1,
-    number: "01",
-    title: "Programming",
-    subtitle: "Languages & Fundamentals",
-    description:
-      "The languages I use to solve problems and build software.",
-    skills: ["C++", "Python", "JavaScript", "SQL"],
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Frontend",
-    subtitle: "Interfaces & Experiences",
-    description:
-      "Building modern, responsive and interactive digital experiences.",
-    skills: [
-      "React.js",
-      "Next.js",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-    ],
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Backend",
-    subtitle: "Logic & Architecture",
-    description:
-      "Developing scalable server-side applications and APIs.",
-    skills: [
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-    ],
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Databases",
-    subtitle: "Data & Management",
-    description:
-      "Structuring, managing and querying application data.",
-    skills: [
-      "PostgreSQL",
-      "Prisma",
-      "Drizzle ORM",
-    ],
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Machine Learning",
-    subtitle: "Intelligence & Models",
-    description:
-      "Exploring machine learning concepts, data processing and predictive models.",
-    skills: [
-      "NumPy",
-      "Pandas",
-      "Scikit-learn",
-      "Regression",
-      "Classification",
-      "Decision Trees",
-      "Random Forest",
-      "SVM",
-      "KNN",
-      "PCA",
-      "Feature Engineering",
-      "Supervised Learning",
-      "Unsupervised Learning",
-    ],
-  },
-];
+import { skills as skillStacks } from "@/data/portfolio";
 
 export function SkillsGallery() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -139,7 +66,7 @@ export function SkillsGallery() {
         <div className="absolute left-6 top-[5%] z-30 md:left-12 md:top-[6%]">
 
           <span className="label mb-3 block tracking-editorial">
-            04 / Technical Arsenal
+            03 / Technical Arsenal
           </span>
 
           <h2 className="display-md font-black tracking-tighter text-white">
@@ -159,7 +86,7 @@ export function SkillsGallery() {
         <motion.div
           ref={scrollRef}
           style={{ x }}
-         className="absolute left-0 top-[42%] flex w-max items-center gap-6 pl-[20vw] pr-[6vw] md:top-[35%] md:gap-10 md:pl-[22vw] md:pr-[10vw]"
+          className="absolute left-0 top-[42%] flex w-max items-center gap-6 pl-[20vw] pr-[6vw] md:top-[35%] md:gap-10 md:pl-[22vw] md:pr-[10vw]"
         >
 
           {skillStacks.map((stack) => (
@@ -197,7 +124,7 @@ export function SkillsGallery() {
                 {stack.description}
               </p>
 
-              {/* Marble Skill Pills */}
+              {/* Skill Pills */}
               <div className="relative z-10 mt-5 flex flex-1 flex-wrap content-start items-center gap-2 overflow-y-auto pb-2 pr-1">
 
                 {stack.skills.map((skill, index) => (
@@ -244,8 +171,6 @@ export function SkillsGallery() {
 
             </div>
           ))}
-
-          
 
         </motion.div>
 
